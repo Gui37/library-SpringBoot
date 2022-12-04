@@ -1,22 +1,22 @@
 package mz.com.library.domain;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-
+@Entity
 public class Livro implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private	int id;
+	private	Integer id;
 	 
 	private String autor;
     
@@ -26,9 +26,6 @@ public class Livro implements Serializable {
     	
 	private String editora;
     	
-	private Byte numPag;
-		
-	private LocalDate ano;
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
@@ -37,26 +34,23 @@ public class Livro implements Serializable {
 		super();
 	}
 
-	public Livro(int id, String autor, String titulo, String localEd, String editora, Byte numPag, LocalDate ano,
-			Categoria categoria) {
+	public Livro(Integer id, String autor, String titulo, String localEd, String editora, Categoria categoria) {
 		super();
 		this.id = id;
 		this.autor = autor;
 		this.titulo = titulo;
 		this.localEd = localEd;
 		this.editora = editora;
-		this.numPag = numPag;
-		this.ano = ano;
 		this.categoria = categoria;
 	}
 	
 	
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -92,22 +86,7 @@ public class Livro implements Serializable {
 		this.editora = editora;
 	}
 
-	public Byte getNumPag() {
-		return numPag;
-	}
-
-	public void setNumPag(Byte numPag) {
-		this.numPag = numPag;
-	}
-
-	public LocalDate getAno() {
-		return ano;
-	}
-
-	public void setAno(LocalDate ano) {
-		this.ano = ano;
-	}
-
+	
 	public Categoria getCategoria() {
 		return categoria;
 	}
