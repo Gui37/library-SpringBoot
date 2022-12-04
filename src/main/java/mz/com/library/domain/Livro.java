@@ -1,29 +1,36 @@
 package mz.com.library.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
-public class Livro {
 
+public class Livro implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private	int id;
 	 
 	private String autor;
     
-	
 	private String titulo;
-    
-	
+    	
 	private String localEd;
-    
-	
+    	
 	private String editora;
-    
-	
+    	
 	private Byte numPag;
 		
 	private LocalDate ano;
-
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
 
 	public Livro() {
