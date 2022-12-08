@@ -3,6 +3,8 @@ package mz.com.library.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +28,7 @@ public class Livro implements Serializable {
     	
 	private String editora;
     	
+	@JsonIgnore //Evita a Serialização da classe
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
