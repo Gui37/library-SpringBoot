@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import mz.com.library.domain.Categoria;
 import mz.com.library.repositories.CategoriaRepository;
+import mz.com.library.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -15,6 +16,7 @@ public class CategoriaService {
 	
 	public Categoria findById(Integer id) {
 		Optional <Categoria> obj = categoriaRepository.findById(id); //Evita o NullPointer error
-		return obj.orElse(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				"Categoria/Objecto não encontrado! ID: " + id + " do Tipo: " + Categoria.class.getName()));
 	}
 }
