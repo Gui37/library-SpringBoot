@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import mz.com.library.domain.Categoria;
@@ -41,6 +42,12 @@ public class CategoriaService {
 
 	public void delete(Integer id) {
 		findById(id);
-		categoriaRepository.deleteById(id);
+		try {
+			categoriaRepository.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new mz.com.library.service.exceptions.DataIntegrityViolationException(
+					"Categoria não pode ser eliminada! Existem livros associados a esta categoria");
+		}
+
 	}
 }

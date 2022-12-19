@@ -1,7 +1,7 @@
 package mz.com.library.resource.exceptions;
 
 public class StandardError {
-	private Long timeStamp;
+	private String timeStamp;
 	private Integer status;
 	private String error;
 
@@ -10,18 +10,18 @@ public class StandardError {
 		
 	}
 
-	public StandardError(Long timeStamp, Integer status, String error) {
+	public StandardError(String timeStamp, Integer status, String error) {
 		super();
 		this.timeStamp = timeStamp;
 		this.status = status;
 		this.error = error;
 	}
 
-	public Long getTimeStamp() {
+	public String getTimeStamp() {
 		return timeStamp;
 	}
 
-	public void setTimeStamp(Long timeStamp) {
+	public void setTimeStamp(String timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 
