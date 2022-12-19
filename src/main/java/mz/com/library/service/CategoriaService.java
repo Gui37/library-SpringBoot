@@ -1,5 +1,6 @@
 package mz.com.library.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,9 @@ public class CategoriaService {
 		Optional <Categoria> obj = categoriaRepository.findById(id); //Evita o NullPointer error
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Categoria/Objecto não encontrado! ID: " + id + " do Tipo: " + Categoria.class.getName()));
+	}
+	
+	public List<Categoria> findAll(){
+		return categoriaRepository.findAll();
 	}
 }
