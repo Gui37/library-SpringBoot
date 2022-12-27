@@ -19,11 +19,12 @@ public class ResourceExceptionHandler {
 	 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/uuuu HH:mm:ss");
 	  ZonedDateTime now = ZonedDateTime.now();
 	  ZonedDateTime zone = now.withZoneSameInstant(ZoneId.of("Africa/Cairo"));
+	   String time= "Africa/Cairo "+dtf.format(zone);
 	   
 
 	@ExceptionHandler(ObjectNotFoundException.class)
 	public ResponseEntity<StandardError> objectNotFoundException(ObjectNotFoundException e, ServletRequest request){
-		StandardError error = new StandardError(dtf.format(zone)
+		StandardError error = new StandardError(time
 				, HttpStatus.NOT_FOUND.value(), e.getMessage());
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
 	}
