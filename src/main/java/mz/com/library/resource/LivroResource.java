@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -18,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import jakarta.validation.Valid;
 import mz.com.library.domain.Livro;
 import mz.com.library.dtos.LivroDTO;
 import mz.com.library.service.LivroService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/livro")
 public class LivroResource {
@@ -44,30 +47,31 @@ public class LivroResource {
 	}
 
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Livro> update(@PathVariable Integer id, @RequestBody Livro obj) {
+	public ResponseEntity<Livro> update(@Valid @PathVariable Integer id, @RequestBody Livro obj) {
 		Livro newObj = livroService.update(id, obj);
 		return ResponseEntity.ok().body(newObj);
 	}
 
 	@PatchMapping(value = "/{id}")
-	public ResponseEntity<Livro> updatePatch(@PathVariable Integer id, @RequestBody Livro obj) {
+	public ResponseEntity<Livro> updatePatch(@Valid @PathVariable Integer id, @RequestBody Livro obj) {
 		Livro newObj = livroService.update(id, obj);
 		return ResponseEntity.ok().body(newObj);
 	}
 
 	@PostMapping
-	public ResponseEntity<Livro> create(@RequestParam(value = "categoria", defaultValue = "0") Integer categoria_id,
+	public ResponseEntity<Livro> create(
+			@Valid @RequestParam(value = "categoria", defaultValue = "0") Integer categoria_id,
 			@RequestBody Livro obj) {
 		Livro newObj = livroService.create(categoria_id, obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/livro/{id}")
 				.buildAndExpand(newObj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
-	
-	@DeleteMapping(value= "/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Integer id){
+
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		livroService.delete(id);
 		return ResponseEntity.noContent().build();
-		
+
 	}
 }

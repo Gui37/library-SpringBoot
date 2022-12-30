@@ -5,22 +5,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import org.hibernate.validator.constraints.Length;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 public class Categoria implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
+	@NotEmpty(message = "O Campo Título é requerido")
+	@Length(min = 3, max = 100, message = "O campo Título deve ter entre 3 a 100 caracteres")
 	private String titulo;
-	
+
+	@NotEmpty(message = "O Campo Descrição é requerido")
+	@Length(min = 3, max = 500, message = "O campo Título deve ter entre 3 a 100 caracteres")
 	private String descricao;
 	@OneToMany(mappedBy = "categoria")
 	private List<Livro> livros = new ArrayList<>();
@@ -84,10 +91,5 @@ public class Categoria implements Serializable {
 		Categoria other = (Categoria) obj;
 		return id == other.id;
 	}
-	
-	
-	
-	
-	
-	
+
 }
