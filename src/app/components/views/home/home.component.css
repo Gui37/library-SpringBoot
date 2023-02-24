@@ -1,0 +1,12 @@
+.home {
+    width: 95%;
+    align-items: center;
+    margin: 1rem auto;
+}
+
+@media(max-width:350px)
+{
+    .home{
+        width: 50%;
+    }
+}
