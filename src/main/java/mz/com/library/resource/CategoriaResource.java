@@ -22,7 +22,7 @@ import mz.com.library.domain.Categoria;
 import mz.com.library.dtos.CategoriaDTO;
 import mz.com.library.service.CategoriaService;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/categoria")
 public class CategoriaResource {
