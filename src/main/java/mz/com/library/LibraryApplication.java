@@ -18,7 +18,8 @@ public class LibraryApplication {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/products").allowedOrigins("*");
+				registry.addMapping("/categoria").allowedOrigins("*");
+				registry.addMapping("/livro").allowedOrigins("*");
 			}
 		};
 	}
