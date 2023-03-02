@@ -1,1 +1,16 @@
-<p>categoria-update works!</p>
+<form action="">
+    <h1>Actualizando Categoria</h1>
+    <mat-form-field class="form">
+        <mat-label> Nome </mat-label>
+        <input matInput [(ngModel)]="categoria.titulo" type="text" name="nome">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label> Descrição </mat-label>
+        <textarea matInput [(ngModel)]="categoria.descricao" type="text" name="descricao" rows="0.5"></textarea>
+    </mat-form-field>
+
+    <div class="buttons">
+        <button (click)="update()" class="mat-elevation-z8" mat-raised-button color="primary">Actualizar</button>
+        <button (click)="cancel()" class="mat-elevation-z8" mat-raised-button color="warn">Cancelar</button>
+    </div>
+</form>
