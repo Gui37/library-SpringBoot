@@ -1,0 +1,30 @@
+form {
+    text-align: center;
+    width: 75%;
+    margin: 2rem auto 0 auto;
+}
+
+h1 {
+    font-size: 2.3rem;
+    font-weight: 500;
+    margin-bottom: 3.2rem;
+}
+
+.form {
+    width: 100%;
+}
+
+.buttons {
+    width: 100%;
+    text-align: start;
+}
+
+button {
+    margin-right: 0.6rem;
+    padding-right: 2.3rem;
+    padding-left: 2rem;
+}
+
+textarea {
+    height: 1.1rem;
+}
