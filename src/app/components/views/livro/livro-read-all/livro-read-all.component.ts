@@ -27,4 +27,8 @@ export class LivroReadAllComponent {
       console.log(this.livro)
     }))
   }
+  
+  goToLivroCreate():void{
+    this.router.navigate([`categorias/${this.categoria_id}/livro/create`])
+  }
 }

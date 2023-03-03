@@ -24,11 +24,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CategoriaDeleteComponent } from './components/views/categoria/categoria-delete/categoria-delete.component';
 import { CategoriaUpdateComponent } from './components/views/categoria/categoria-update/categoria-update.component';
 import { LivroReadAllComponent } from './components/views/livro/livro-read-all/livro-read-all.component';
+import { LivroCreateComponent } from './components/views/livro/livro-create/livro-create.component';
 
 
 
@@ -44,6 +45,7 @@ import { LivroReadAllComponent } from './components/views/livro/livro-read-all/l
     CategoriaDeleteComponent,
     CategoriaUpdateComponent,
     LivroReadAllComponent,
+    LivroCreateComponent,
 
   ],
   imports: [
@@ -61,7 +63,8 @@ import { LivroReadAllComponent } from './components/views/livro/livro-read-all/l
     MatFormFieldModule,
     MatSnackBarModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
