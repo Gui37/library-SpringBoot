@@ -1,0 +1,46 @@
+<form action="">
+    <h1>Criando novo Livro</h1>
+    <h3>Os campos com * são obrigatórios</h3>
+
+    <mat-form-field class="form">
+        <mat-label> Título </mat-label>
+        <input matInput type="text" [(ngModel)]="livro.titulo" [formControl]="titulo" required name="titulo"
+            maxlength="100">
+        <mat-error *ngIf="titulo.invalid">
+            {{ getMessage() }}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label> Nome do Autor </mat-label>
+        <input matInput [(ngModel)]="livro.autor" [formControl]="autor" required type="text" name="autor"
+            maxlength="100">
+        <mat-error *ngIf="autor.invalid">
+            {{ getMessage() }}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label> Editora </mat-label>
+        <input matInput [(ngModel)]="livro.editora" required [formControl]="editora" type="text" name="editora"
+            maxlength="100">
+        <mat-error *ngIf="titulo.invalid">
+            {{ getMessage() }}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label> Descrição </mat-label>
+        <textarea matInput [(ngModel)]="livro.descricao" [formControl]="descricao" required type="text" name="descricao"
+            maxlength="2000"></textarea>
+        <mat-error *ngIf="descricao.invalid">
+            {{ getMessage() }}
+        </mat-error>
+    </mat-form-field>
+
+    <div class="buttons">
+        <button (click)="update()" [disabled]="getMessage()" class="mat-elevation-z8" mat-raised-button
+            color="primary">Actualizar</button>
+        <button (click)="cancel()" class="mat-elevation-z8" mat-raised-button color="warn">Cancelar</button>
+    </div>
+</form>

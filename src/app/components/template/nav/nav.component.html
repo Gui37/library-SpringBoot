@@ -1,5 +1,5 @@
-<mat-sidenav-container class="container">
-    <mat-sidenav opened mode="side">
+<mat-sidenav-container class="container" color="primary">
+    <mat-sidenav #drawer opened mode="side">
         <mat-nav-list>
             <a routerLink="" mat-list-item>
                 <i class="material-icons">home</i>
@@ -12,6 +12,10 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
+        <button type="button" mat-button (click)="drawer.toggle()" (click)="changeText()">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu"></mat-icon>
+            {{ btnSide ? "Ocultar SideBar"  : "Mostrar SideBar" }}
+          </button>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

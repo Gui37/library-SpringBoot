@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
+  btnSide = true
+
+  changeText(): void {
+    if(this.btnSide){ 
+      this.btnSide = false; 
+    }else{ 
+      this.btnSide = true; 
+    } 
+  }
 }
