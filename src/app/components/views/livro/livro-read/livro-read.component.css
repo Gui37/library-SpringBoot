@@ -1,0 +1,18 @@
+form {
+    width: 95%;
+    margin: auto;
+}
+
+.home {
+    margin:1rem auto;
+    text-align: center;
+}
+.subhome {
+    margin:1rem auto;
+    text-align: center;
+}
+.subhome2 {
+    margin:1rem auto;
+    text-align: justify;
+    padding-inline: 2rem;
+}

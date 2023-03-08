@@ -1,4 +1,4 @@
-<form action="">
+<form>
     <h1>Removendo Livro</h1>
     <h3>Verfique o conteúdo a ser removido</h3>
 
@@ -10,17 +10,20 @@
 
     <mat-form-field class="form">
         <mat-label> Nome do Autor </mat-label>
-        <input matInput [(ngModel)]="livro.autor" disabled type="text" name="autor" placeholder="Ex. Guifty Ananias" maxlength="100">
+        <input matInput [(ngModel)]="livro.autor" disabled type="text" name="autor" placeholder="Ex. Guifty Ananias"
+            maxlength="100">
     </mat-form-field>
 
     <mat-form-field class="form">
         <mat-label> Editora </mat-label>
-        <input matInput [(ngModel)]="livro.editora" disabled type="text" name="editora" placeholder="Ex. Texto Editores" maxlength="100">
+        <input matInput [(ngModel)]="livro.editora" disabled type="text" name="editora" placeholder="Ex. Texto Editores"
+            maxlength="100">
     </mat-form-field>
 
     <mat-form-field class="form">
         <mat-label> Descrição </mat-label>
-        <textarea matInput [(ngModel)]="livro.descricao" disabled type="text" name="descricao" placeholder="Ex. Lorem Ipsum" maxlength="2000"></textarea>
+        <textarea matInput [(ngModel)]="livro.descricao" disabled type="text" name="descricao"
+            placeholder="Ex. Lorem Ipsum" maxlength="5000000"></textarea>
     </mat-form-field>
 
     <div class="buttons">
