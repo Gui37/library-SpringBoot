@@ -16,8 +16,8 @@ public class LivroDTO implements Serializable {
 	@Length(min = 3, max = 100, message = "O campo Autor deve ter entre 3 a 100 caracteres")
 	private String autor;
 
-	@NotEmpty(message = "O Campo Descrição é requerido")
-	@Length(min = 3, max = 500, message = "O campo Título deve ter entre 3 a 100 caracteres")
+	@NotEmpty(message = "O Campo Título é requerido")
+	@Length(min = 3, max = 100, message = "O campo Título deve ter entre 3 a 100 caracteres")
 	private String titulo;
 
 	public LivroDTO() {

@@ -39,11 +39,10 @@ public class LivroService {
 
 	private void updateData(Livro newObj, Livro obj) {
 		newObj.setAutor(obj.getAutor());
-		newObj.setCategoria(obj.getCategoria());
 		newObj.setEditora(obj.getEditora());
-		newObj.setLocalEd(obj.getLocalEd());
 		newObj.setTitulo(obj.getTitulo());
-		
+		newObj.setDescricao(obj.getDescricao());
+
 	}
 
 	public Livro create(Integer categoria_id, Livro obj) {

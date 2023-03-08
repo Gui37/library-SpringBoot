@@ -3,16 +3,11 @@ package mz.com.library.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.*;
 import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
 
 @Entity
@@ -28,19 +23,19 @@ public class Livro implements Serializable {
 	private String autor;
 
 	@NotEmpty(message = "O Campo Descrição é requerido")
-	@Length(min = 3, max = 500, message = "O campo Título deve ter entre 3 a 100 caracteres")
-	private String titulo;
+	@Length(min = 3, max = 50000, message = "O campo Descrição deve ter entre 3 a 50000 caracteres")
+	private String descricao;
 
-	@NotEmpty(message = "O Campo localEd é requerido")
-	@Length(min = 3, max = 100, message = "O campo localEd deve ter entre 3 a 100 caracteres")
-	private String localEd;
+	@NotEmpty(message = "O Campo Título é requerido")
+		@Length(min = 3, max = 100, message = "O campo Título deve ter entre 3 a 100 caracteres")
+	private String titulo;
 
 	@NotEmpty(message = "O Campo Editora é requerido")
 	@Length(min = 3, max = 100, message = "O campo Editora deve ter entre 3 a 100 caracteres")
 	private String editora;
 
 	@JsonIgnore // Evita a Serialização da classe
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
 
@@ -48,12 +43,12 @@ public class Livro implements Serializable {
 		super();
 	}
 
-	public Livro(Integer id, String autor, String titulo, String localEd, String editora, Categoria categoria) {
+	public Livro(Integer id, String autor, String descricao, String titulo, String editora, Categoria categoria) {
 		super();
 		this.id = id;
 		this.autor = autor;
+		this.descricao = descricao;
 		this.titulo = titulo;
-		this.localEd = localEd;
 		this.editora = editora;
 		this.categoria = categoria;
 	}
@@ -74,20 +69,20 @@ public class Livro implements Serializable {
 		this.autor = autor;
 	}
 
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
-
-	public String getLocalEd() {
-		return localEd;
-	}
-
-	public void setLocalEd(String localEd) {
-		this.localEd = localEd;
 	}
 
 	public String getEditora() {
